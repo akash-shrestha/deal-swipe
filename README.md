@@ -1,1 +1,1 @@
-# akash-product-cards
+# deal-swipe
