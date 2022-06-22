@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Akash Products Cards PWA" />
+    <link
+      rel="apple-touch-icon"
+      href="./images/non-transparent-apple-touch-icon-180.png"
+    />
+    <link rel="manifest" href="/manifest.json" />
+    <title>Product Cards</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // script to register the service worker
+      // first check if browser supports the service service
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("./service-worker.js")
+            .then((reg) =>
+              console.log("Service worker registration success: ", reg.scope)
+            ) // log the url where service worker was installed
+            .catch((err) =>
+              console.log("Service worker registration failure: ", err)
+            );
+        });
+      }
+    </script>
+  </body>
+</html>
